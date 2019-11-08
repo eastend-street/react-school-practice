@@ -1,6 +1,7 @@
 import React from "react";
 import AxiosComp from "../AxiosComp/AxiosComp";
 import ClassNameComp from "../ClassNameComp/ClassNameComp";
+import ReactMediaComp from "../ReactMediaComp/ReactMediaComp";
 import "./App.scss";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <div>
         <AxiosComp />
         <ClassNameComp />
+        <ReactMediaComp />
       </div>
     </div>
   );

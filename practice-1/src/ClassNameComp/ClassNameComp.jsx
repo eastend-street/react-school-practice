@@ -9,7 +9,7 @@ const ClassNameComp = ({ isCurrentPage, isThemeDark }) => {
         "Header-dark": isThemeDark
       })}
     >
-      Title
+      Here is classnames component
     </div>
   );
 };
