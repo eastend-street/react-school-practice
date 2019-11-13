@@ -5,7 +5,6 @@ const AboutPage = ({ match, history, location }) => {
   return (
     <>
       <div>This is the AboutPage!</div>
-      <button onClick={() => history.push("/")}>Go to home and refresh!</button>
     </>
   );
 };
