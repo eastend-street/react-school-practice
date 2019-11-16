@@ -1,0 +1,15 @@
+.container {
+    background-color: #eee;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+
+    .wrap-todo{
+        width: 30rem;
+        height: 30rem;
+        background-color: #fff;
+        padding: 3rem;
+    }
+}
