@@ -1,12 +1,20 @@
 import React from "react";
 import "./Todo.scss";
 
-const Todo = ()=> {
+const Todo = ({ todo, switchDone, index }) => {
   return (
-    <div className="todo">
-          aaaaaa
-    </div>
+    <li className="todo" key={index} onClick={() => switchDone(index)}>
+      <div
+        style={
+          todo.isDone
+            ? { textDecoration: "line-through" }
+            : { textDecoration: "none" }
+        }
+      >
+        {todo.name}
+      </div>
+    </li>
   );
-}
+};
 
 export default Todo;

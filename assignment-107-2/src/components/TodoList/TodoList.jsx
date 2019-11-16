@@ -1,15 +1,13 @@
 import React from "react";
 import "./TodoList.scss";
 
+import Todo from "../Todo/Todo";
+
 const TodoList = ({ todoList, switchDone }) => {
   return (
     <ul className="todo-list">
       {todoList.map((todo, index) => {
-        return (
-          <li className="todo" key={index} onClick={() => switchDone(index)}>
-            {todo.isDone ? "done" : todo.name}
-          </li>
-        );
+        return <Todo todo={todo} switchDone={switchDone} index={index} />;
       })}
     </ul>
   );
