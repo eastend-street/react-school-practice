@@ -22,22 +22,26 @@ const App = () => {
     }
   ]);
 
-  const handleOnClick = doneTodoIndex => {
+  const switchDone = doneTodoIndex => {
     setTodoList(
       todoList.map((todo, index) => {
         if (index === doneTodoIndex) {
-          todo.isDone = true;
+          todo.isDone = !todo.isDone;
         }
         return todo;
       })
     );
   };
 
+  const add = newTodo => {
+    setTodoList([...todoList, newTodo]);
+  };
+
   return (
     <div className="container">
       <div className="wrap-todo">
-        <AddTodo />
-        <TodoList todoList={todoList} switchDone={handleOnClick} />
+        <AddTodo todoList={todoList} add={add} />
+        <TodoList todoList={todoList} switchDone={switchDone} />
       </div>
     </div>
   );

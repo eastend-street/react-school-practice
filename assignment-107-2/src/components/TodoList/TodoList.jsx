@@ -1,8 +1,9 @@
 import React from "react";
+import "./TodoList.scss";
 
 const TodoList = ({ todoList, switchDone }) => {
   return (
-    <ul>
+    <ul className="todo-list">
       {todoList.map((todo, index) => {
         return (
           <li className="todo" key={index} onClick={() => switchDone(index)}>
