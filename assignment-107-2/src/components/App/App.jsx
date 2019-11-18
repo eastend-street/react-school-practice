@@ -3,9 +3,10 @@ import "./App.scss";
 import AddTodo from "../AddTodo/AddTodo";
 import TodoList from "../TodoList/TodoList";
 import TodoFilter from "../TodoFilter/TodoFilter";
+import activeStates from "../Constants/TodoConstants";
 
 const App = () => {
-  const [selectedFilter, setSelectedFilter] = useState("all");
+  const [selectedFilter, setSelectedFilter] = useState(activeStates.ALL);
   const [todoList, setTodoList] = useState([
     {
       id: 1,
@@ -23,12 +24,11 @@ const App = () => {
       isDone: false
     }
   ]);
-  const [filteredList, setFilteredList] = useState(todoList);
+  // const [filteredList, setFilteredList] = useState(todoList);
 
-
-  const selectFilter = (filterName)=>{
-    
-  }
+  const changeFilter = filterName => {
+    setSelectedFilter(filterName);
+  };
 
   const switchDone = doneTodoIndex => {
     setTodoList(
@@ -45,13 +45,26 @@ const App = () => {
     setTodoList([...todoList, newTodo]);
   };
 
-  console.log(filteredList);
   return (
     <div className="container">
       <div className="wrap-todo">
         <AddTodo todoList={todoList} add={add} />
-        <TodoFilter />
-        <TodoList todoList={todoList} switchDone={switchDone} />
+        <TodoFilter
+          selectedFilter={selectedFilter}
+          changeFilter={changeFilter}
+        />
+        <TodoList
+          todoList={todoList.filter(todo => {
+            if (selectedFilter === activeStates.COMPLETED) {
+              return todo.isDone;
+            } else if (selectedFilter === activeStates.ACTIVE) {
+              return !todo.isDone;
+            } else {
+              return todo;
+            }
+          })}
+          switchDone={switchDone}
+        />
       </div>
     </div>
   );

@@ -1,19 +1,35 @@
 import React from "react";
 import "./TodoFilter.scss";
+import activeStates from "../Constants/TodoConstants";
 
-const TodoFilter = () => {
-    
+const TodoFilter = ({ selectedFilter, changeFilter }) => {
+  console.log(selectedFilter);
   return (
     <div className="todo-filter">
       <ul>
         <li>
-          <div className="filter-button">All</div>
+          <div
+            className="filter-button"
+            onClick={() => changeFilter(activeStates.ALL)}
+          >
+            All
+          </div>
         </li>
         <li>
-          <div className="filter-button">Active</div>
+          <div
+            className="filter-button"
+            onClick={() => changeFilter(activeStates.ACTIVE)}
+          >
+            Active
+          </div>
         </li>
         <li>
-          <div className="filter-button">Completed</div>
+          <div
+            className="filter-button"
+            onClick={() => changeFilter(activeStates.COMPLETED)}
+          >
+            Completed
+          </div>
         </li>
       </ul>
     </div>
