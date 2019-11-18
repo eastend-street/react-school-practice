@@ -1,0 +1,21 @@
+.todo-filter {
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+    li {
+      .filter-button {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+        min-width: 5rem;
+        text-align: center;
+        padding: 0.3rem 1rem;
+        border: solid 1px #bdbdbd;
+        border-radius: 0.8rem;
+        color: #bdbdbd;
+        cursor: pointer;
+      }
+    }
+  }
+}

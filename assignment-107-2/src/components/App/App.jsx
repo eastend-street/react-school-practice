@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./App.scss";
 import AddTodo from "../AddTodo/AddTodo";
 import TodoList from "../TodoList/TodoList";
+import TodoFilter from "../TodoFilter/TodoFilter";
 
 const App = () => {
+  const [selectedFilter, setSelectedFilter] = useState("all");
   const [todoList, setTodoList] = useState([
     {
       id: 1,
@@ -21,6 +23,12 @@ const App = () => {
       isDone: false
     }
   ]);
+  const [filteredList, setFilteredList] = useState(todoList);
+
+
+  const selectFilter = (filterName)=>{
+    
+  }
 
   const switchDone = doneTodoIndex => {
     setTodoList(
@@ -37,10 +45,12 @@ const App = () => {
     setTodoList([...todoList, newTodo]);
   };
 
+  console.log(filteredList);
   return (
     <div className="container">
       <div className="wrap-todo">
         <AddTodo todoList={todoList} add={add} />
+        <TodoFilter />
         <TodoList todoList={todoList} switchDone={switchDone} />
       </div>
     </div>

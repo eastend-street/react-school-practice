@@ -7,7 +7,7 @@ const TodoList = ({ todoList, switchDone }) => {
   return (
     <ul className="todo-list">
       {todoList.map((todo, index) => {
-        return <Todo todo={todo} switchDone={switchDone} index={index} />;
+        return <Todo key={index} todo={todo} switchDone={switchDone} index={index} />;
       })}
     </ul>
   );
